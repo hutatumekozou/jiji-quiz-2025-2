@@ -1,0 +1,14 @@
+{
+  "name": "jiji-quiz-2025",
+  "version": "1.0.0",
+  "description": "2025年時事クイズアプリ",
+  "main": "index.html",
+  "scripts": {
+    "dev": "serve .",
+    "build": "echo 'No build step required for static HTML'",
+    "start": "serve ."
+  },
+  "keywords": ["quiz", "japanese", "news", "2025"],
+  "author": "",
+  "license": "MIT"
+}

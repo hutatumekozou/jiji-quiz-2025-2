@@ -1,0 +1,20 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'JijiQuiz2025' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for JijiQuiz2025
+  pod 'Google-Mobile-Ads-SDK'
+
+  target 'JijiQuiz2025Tests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'JijiQuiz2025UITests' do
+    # Pods for testing
+  end
+
+end

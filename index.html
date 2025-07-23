@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2025時事クイズ</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Meiryo', sans-serif;
+            background-color: #f5f5f5;
+            min-height: 100vh;
+            padding: 20px;
+            overflow-y: auto;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+        
+        .container {
+            max-width: 600px;
+            width: 90%;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            overflow: hidden;
+            margin: 20px 0;
+            max-height: none;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+        
+        .content {
+            padding: 40px 30px;
+            text-align: center;
+            min-height: auto;
+            overflow-y: auto;
+        }
+        
+        .question-counter {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        
+        .question {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .option {
+            padding: 15px 20px;
+            background: #f8f9fa;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 16px;
+            text-align: left;
+        }
+        
+        .option:hover {
+            background: #e7f3ff;
+            border-color: #3498db;
+        }
+        
+        .option.selected {
+            background: #3498db;
+            color: white;
+            border-color: #3498db;
+        }
+        
+        .option.correct {
+            background: #2ecc71;
+            color: white;
+            border-color: #2ecc71;
+        }
+        
+        .option.incorrect {
+            background: #e74c3c;
+            color: white;
+            border-color: #e74c3c;
+        }
+        
+        .explanation {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            text-align: left;
+            border-left: 4px solid #3498db;
+        }
+        
+        .explanation h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        .explanation p {
+            color: #7f8c8d;
+            line-height: 1.5;
+        }
+        
+        .btn {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 20px 0;
+            width: 100%;
+            max-width: 200px;
+        }
+        
+        .btn:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+        }
+        
+        .btn:disabled {
+            background: #bdc3c7;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .score {
+            font-size: 48px;
+            color: #3498db;
+            margin: 20px 0;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        .start-screen {
+            text-align: center;
+            padding: 40px;
+        }
+        
+        .start-screen h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+        
+        .start-screen p {
+            font-size: 16px;
+            color: #7f8c8d;
+            margin-bottom: 30px;
+        }
+        
+        .result-screen {
+            text-align: center;
+            padding: 40px;
+        }
+        
+        .result-screen h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+        
+        .percentage {
+            font-size: 24px;
+            color: #7f8c8d;
+            margin-bottom: 20px;
+        }
+        
+        .message {
+            font-size: 20px;
+            color: #2c3e50;
+            margin-bottom: 30px;
+        }
+        
+        /* モバイル対応 */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            .container {
+                width: 95%;
+                margin: 10px 0;
+            }
+            
+            .content {
+                padding: 20px 15px;
+            }
+            
+            .header {
+                padding: 20px;
+            }
+            
+            .question {
+                font-size: 16px;
+            }
+            
+            .option {
+                padding: 12px 15px;
+                font-size: 14px;
+            }
+            
+            .explanation {
+                padding: 15px;
+                margin: 15px 0;
+            }
+            
+            .btn {
+                padding: 12px 25px;
+                font-size: 14px;
+            }
+        }
+        
+        /* 小さいスクリーンでのスクロール確保 */
+        @media (max-height: 700px) {
+            body {
+                align-items: flex-start;
+                padding-top: 10px;
+            }
+            
+            .container {
+                margin: 10px 0;
+            }
+            
+            .content {
+                padding: 20px 15px;
+            }
+        }
+        
+        /* 広告アニメーション */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes fadeOut {
+            from { opacity: 1; }
+            to { opacity: 0; }
+        }
+        
+        @keyframes slideIn {
+            from { 
+                transform: translateY(-50px); 
+                opacity: 0; 
+            }
+            to { 
+                transform: translateY(0); 
+                opacity: 1; 
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>2025時事クイズ</h1>
+            <p>最新ニュースで知識をチェック！</p>
+        </div>
+        
+        <!-- スタート画面 -->
+        <div id="start-screen" class="start-screen">
+            <h2>時事問題にチャレンジ！</h2>
+            <p>2025年の最新ニュースに関する問題が10問出題されます</p>
+            <button class="btn" onclick="startQuiz()">スタート</button>
+        </div>
+        
+        <!-- クイズ画面 -->
+        <div id="quiz-screen" class="content hidden">
+            <div class="question-counter">
+                問題 <span id="question-number">1</span> / 10
+            </div>
+            <div class="question" id="question-text"></div>
+            <div class="options" id="options"></div>
+            <div id="explanation" class="explanation hidden">
+                <h3 id="result-text"></h3>
+                <p id="explanation-text"></p>
+            </div>
+            <button id="next-btn" class="btn hidden">次の問題</button>
+        </div>
+        
+        <!-- 結果画面 -->
+        <div id="result-screen" class="result-screen hidden">
+            <h2>結果発表</h2>
+            <div class="score" id="final-score">0 / 10</div>
+            <div class="percentage" id="percentage">正答率: 0%</div>
+            <div class="message" id="result-message"></div>
+            <button class="btn" onclick="restartQuiz()">最初に戻る</button>
+        </div>
+    </div>
+
+    <script>
+        const questions = [
+            {
+                "id": 1,
+                "text": "2025年に開催される大阪・関西万博のテーマは何でしょうか？",
+                "options": [
+                    "いのち輝く未来社会のデザイン",
+                    "人類の進歩と調和",
+                    "よりよい明日のために",
+                    "みんなで創る持続可能な社会"
+                ],
+                "correctIndex": 0,
+                "explanation": "2025年大阪・関西万博のテーマは「いのち輝く未来社会のデザイン」です。"
+            },
+            {
+                "id": 2,
+                "text": "2025年に予定されている日本の重要な政治イベントは何でしょうか？",
+                "options": [
+                    "参議院議員選挙",
+                    "衆議院議員選挙",
+                    "都道府県知事選挙",
+                    "市町村長選挙"
+                ],
+                "correctIndex": 0,
+                "explanation": "2025年には参議院議員選挙が予定されています。"
+            },
+            {
+                "id": 3,
+                "text": "2025年現在、日本の人口に関する大きな話題となっているのは何でしょうか？",
+                "options": [
+                    "少子高齢化の加速",
+                    "人口の急激な増加",
+                    "外国人労働者の減少",
+                    "地方への人口移住"
+                ],
+                "correctIndex": 0,
+                "explanation": "日本では少子高齢化が進行し、人口減少が社会的課題となっています。"
+            },
+            {
+                "id": 4,
+                "text": "2025年に注目されている環境問題対策として、日本が目指している目標は何でしょうか？",
+                "options": [
+                    "カーボンニュートラル",
+                    "完全リサイクル社会",
+                    "全電力の太陽光発電化",
+                    "プラスチック完全廃止"
+                ],
+                "correctIndex": 0,
+                "explanation": "日本は2050年までにカーボンニュートラル（温室効果ガス排出量実質ゼロ）を目指しています。"
+            },
+            {
+                "id": 5,
+                "text": "2025年現在、日本の経済政策で注目されているデジタル化政策は何でしょうか？",
+                "options": [
+                    "DX（デジタルトランスフォーメーション）推進",
+                    "完全キャッシュレス化",
+                    "AI完全自動化",
+                    "メタバース経済移行"
+                ],
+                "correctIndex": 0,
+                "explanation": "日本政府はDX推進により、社会全体のデジタル化を進めています。"
+            },
+            {
+                "id": 6,
+                "text": "2025年に話題となっている新しい働き方として定着したものは何でしょうか？",
+                "options": [
+                    "リモートワーク・テレワーク",
+                    "週3日勤務",
+                    "AI代替勤務",
+                    "完全自動化労働"
+                ],
+                "correctIndex": 0,
+                "explanation": "コロナ禍を機に、リモートワークやテレワークが新しい働き方として定着しました。"
+            },
+            {
+                "id": 7,
+                "text": "2025年現在、日本の教育現場で進められているデジタル化政策は何でしょうか？",
+                "options": [
+                    "GIGAスクール構想",
+                    "完全オンライン授業",
+                    "AI教師導入",
+                    "メタバース教室"
+                ],
+                "correctIndex": 0,
+                "explanation": "GIGAスクール構想により、全国の小中学校で1人1台端末の整備が進められています。"
+            },
+            {
+                "id": 8,
+                "text": "2025年に注目されている日本の宇宙開発事業は何でしょうか？",
+                "options": [
+                    "月面探査計画",
+                    "火星移住計画",
+                    "宇宙ステーション建設",
+                    "小惑星採掘"
+                ],
+                "correctIndex": 0,
+                "explanation": "日本はアルテミス計画に参加し、月面探査を進めています。"
+            },
+            {
+                "id": 9,
+                "text": "2025年現在、日本の医療分野で注目されている技術は何でしょうか？",
+                "options": [
+                    "AI診断・遠隔医療",
+                    "完全ロボット手術",
+                    "遺伝子完全治療",
+                    "不老不死技術"
+                ],
+                "correctIndex": 0,
+                "explanation": "AI技術の発達により、診断支援や遠隔医療が注目されています。"
+            },
+            {
+                "id": 10,
+                "text": "2025年に開催される大阪・関西万博の会期はいつでしょうか？",
+                "options": [
+                    "2025年4月13日〜10月13日",
+                    "2025年5月1日〜10月31日",
+                    "2025年3月1日〜9月30日",
+                    "2025年6月1日〜11月30日"
+                ],
+                "correctIndex": 0,
+                "explanation": "2025年大阪・関西万博は2025年4月13日から10月13日まで開催されます。"
+            }
+        ];
+
+        let currentQuestion = 0;
+        let score = 0;
+        let selectedAnswer = null;
+        let showingResult = false;
+
+        function startQuiz() {
+            document.getElementById('start-screen').classList.add('hidden');
+            document.getElementById('quiz-screen').classList.remove('hidden');
+            currentQuestion = 0;
+            score = 0;
+            selectedAnswer = null;
+            showingResult = false;
+            showQuestion();
+        }
+
+        function showQuestion() {
+            const question = questions[currentQuestion];
+            document.getElementById('question-number').textContent = currentQuestion + 1;
+            document.getElementById('question-text').textContent = question.text;
+            
+            const optionsContainer = document.getElementById('options');
+            optionsContainer.innerHTML = '';
+            
+            question.options.forEach((option, index) => {
+                const optionElement = document.createElement('div');
+                optionElement.className = 'option';
+                optionElement.textContent = option;
+                optionElement.onclick = () => selectAnswer(index);
+                optionsContainer.appendChild(optionElement);
+            });
+            
+            document.getElementById('explanation').classList.add('hidden');
+            document.getElementById('next-btn').classList.add('hidden');
+            selectedAnswer = null;
+            showingResult = false;
+        }
+
+        function selectAnswer(index) {
+            if (selectedAnswer !== null) return;
+            
+            selectedAnswer = index;
+            showingResult = true;
+            
+            const question = questions[currentQuestion];
+            const options = document.querySelectorAll('.option');
+            
+            options[index].classList.add('selected');
+            
+            if (index === question.correctIndex) {
+                options[index].classList.add('correct');
+                score++;
+                document.getElementById('result-text').textContent = '正解！';
+            } else {
+                options[index].classList.add('incorrect');
+                options[question.correctIndex].classList.add('correct');
+                document.getElementById('result-text').textContent = '不正解';
+            }
+            
+            document.getElementById('explanation-text').textContent = question.explanation;
+            document.getElementById('explanation').classList.remove('hidden');
+            document.getElementById('next-btn').classList.remove('hidden');
+            
+            const nextBtn = document.getElementById('next-btn');
+            nextBtn.textContent = currentQuestion < questions.length - 1 ? '次の問題' : '結果を見る';
+        }
+
+        function nextQuestion() {
+            console.log('nextQuestion called, currentQuestion:', currentQuestion);
+            if (currentQuestion < questions.length - 1) {
+                currentQuestion++;
+                showQuestion();
+            } else {
+                showResult();
+            }
+        }
+        
+        // ボタンのイベントリスナーを設定
+        document.addEventListener('DOMContentLoaded', function() {
+            const nextBtn = document.getElementById('next-btn');
+            if (nextBtn) {
+                nextBtn.addEventListener('click', nextQuestion);
+            }
+        });
+
+        function showResult() {
+            document.getElementById('quiz-screen').classList.add('hidden');
+            document.getElementById('result-screen').classList.remove('hidden');
+            
+            const percentage = Math.round((score / questions.length) * 100);
+            
+            document.getElementById('final-score').textContent = `${score} / ${questions.length}`;
+            document.getElementById('percentage').textContent = `正答率: ${percentage}%`;
+            
+            let message = '';
+            if (percentage >= 80) message = '素晴らしい！';
+            else if (percentage >= 60) message = 'よくできました！';
+            else if (percentage >= 40) message = 'もう少し頑張りましょう！';
+            else message = 'また挑戦してみてください！';
+            
+            document.getElementById('result-message').textContent = message;
+        }
+
+        function restartQuiz() {
+            // 広告表示シミュレーション
+            showTestAd(() => {
+                document.getElementById('result-screen').classList.add('hidden');
+                document.getElementById('start-screen').classList.remove('hidden');
+            });
+        }
+        
+        function showTestAd(callback) {
+            // インタースティシャル広告のシミュレーション
+            const adOverlay = document.createElement('div');
+            adOverlay.id = 'ad-overlay';
+            adOverlay.style.cssText = `
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.8);
+                z-index: 9999;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                animation: fadeIn 0.3s ease-in-out;
+            `;
+            
+            const adContent = document.createElement('div');
+            adContent.style.cssText = `
+                background: white;
+                border-radius: 15px;
+                padding: 40px;
+                max-width: 400px;
+                width: 90%;
+                text-align: center;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+                position: relative;
+                animation: slideIn 0.5s ease-out;
+            `;
+            
+            adContent.innerHTML = `
+                <div style="color: #e74c3c; font-size: 48px; margin-bottom: 20px;">🎯</div>
+                <h2 style="color: #2c3e50; margin-bottom: 15px;">テスト広告</h2>
+                <p style="color: #7f8c8d; margin-bottom: 20px; line-height: 1.5;">
+                    This is an interstitial demo ad.
+                </p>
+                <div style="background: #f8f9fa; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDEwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiBmaWxsPSIjM0Y4M0Y4Ii8+Cjx0ZXh0IHg9IjUwIiB5PSI1NSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE0IiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+QWQgQ29udGVudDwvdGV4dD4KPHN2Zz4K" alt="Ad Content" style="width: 100px; height: 100px; border-radius: 8px;">
+                </div>
+                <div style="display: flex; justify-content: center; align-items: center; margin-bottom: 20px;">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyIDJMMTMuMDkgOC4yNkwyMCA5TDEzLjA5IDE1Ljc0TDEyIDIyTDEwLjkxIDE1Ljc0TDQgOUwxMC45MSA4LjI2TDEyIDJaIiBmaWxsPSIjRkY1NzIyIi8+CjxwYXRoIGQ9Ik0xMiAyTDEzLjA5IDguMjZMMjAgOUwxMy4wOSAxNS43NEwxMiAyMkwxMC45MSAxNS43NEw0IDlMMTAuOTEgOC4yNkwxMiAyWiIgZmlsbD0iIzQyODVGNCIvPgo8cGF0aCBkPSJNMTIgMkwxMy4wOSA4LjI2TDIwIDlMMTMuMDkgMTUuNzRMMTIgMjJMMTAuOTEgMTUuNzRMNCA5TDEwLjkxIDguMjZMMTIgMloiIGZpbGw9IiNFQTQzMzUiLz4KPHBhdGggZD0iTTEyIDJMMTMuMDkgOC4yNkwyMCA5TDEzLjA5IDE1Ljc0TDEyIDIyTDEwLjkxIDE1Ljc0TDQgOUwxMC45MSA4LjI2TDEyIDJaIiBmaWxsPSIjRkJCQzA0Ii8+Cjwvc3ZnPgo=" alt="Google" style="width: 20px; height: 20px; margin-right: 8px;">
+                    <span style="color: #5f6368; font-size: 14px; font-weight: 500;">Google AdMob</span>
+                </div>
+                <button id="close-ad-btn" style="
+                    background: #1a73e8;
+                    color: white;
+                    border: none;
+                    padding: 10px 20px;
+                    border-radius: 20px;
+                    font-size: 14px;
+                    cursor: pointer;
+                    transition: background 0.3s;
+                ">広告を閉じる</button>
+            `;
+            
+            // 閉じるボタンの処理
+            const closeBtn = adContent.querySelector('#close-ad-btn');
+            closeBtn.addEventListener('click', () => {
+                adOverlay.style.animation = 'fadeOut 0.3s ease-in-out';
+                setTimeout(() => {
+                    document.body.removeChild(adOverlay);
+                    callback();
+                }, 300);
+            });
+            
+            // ホバー効果
+            closeBtn.addEventListener('mouseenter', () => {
+                closeBtn.style.background = '#1557b0';
+            });
+            closeBtn.addEventListener('mouseleave', () => {
+                closeBtn.style.background = '#1a73e8';
+            });
+            
+            adOverlay.appendChild(adContent);
+            document.body.appendChild(adOverlay);
+            
+            // 3秒後に自動で閉じる（オプション）
+            setTimeout(() => {
+                if (document.getElementById('ad-overlay')) {
+                    closeBtn.click();
+                }
+            }, 5000);
+        }
+    </script>
+</body>
+</html>

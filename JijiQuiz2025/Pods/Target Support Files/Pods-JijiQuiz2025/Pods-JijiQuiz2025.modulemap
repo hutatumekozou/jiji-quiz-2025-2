@@ -1,0 +1,6 @@
+framework module Pods_JijiQuiz2025 {
+  umbrella header "Pods-JijiQuiz2025-umbrella.h"
+
+  export *
+  module * { export * }
+}

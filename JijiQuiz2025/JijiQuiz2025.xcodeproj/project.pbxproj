@@ -1,0 +1,713 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		70ED8394D7DC04C97C1E117D /* Pods_JijiQuiz2025.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21E238831DDE9A3A525A5F44 /* Pods_JijiQuiz2025.framework */; };
+		A9301CC58CECDB822E05DA84 /* Pods_JijiQuiz2025_JijiQuiz2025UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C625FEDFC97DE5D52A1D1F1 /* Pods_JijiQuiz2025_JijiQuiz2025UITests.framework */; };
+		CE9A328C5A9AA6221CA2ACE4 /* Pods_JijiQuiz2025Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C12B046CD45DF17BF2ECEAD /* Pods_JijiQuiz2025Tests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1D170ABF2E28012E008C4110 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1D170AA92E28012B008C4110 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1D170AB02E28012B008C4110;
+			remoteInfo = JijiQuiz2025;
+		};
+		1D170AC92E28012E008C4110 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1D170AA92E28012B008C4110 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1D170AB02E28012B008C4110;
+			remoteInfo = JijiQuiz2025;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1D170AB12E28012B008C4110 /* JijiQuiz2025.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JijiQuiz2025.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D170ABE2E28012E008C4110 /* JijiQuiz2025Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JijiQuiz2025Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D170AC82E28012E008C4110 /* JijiQuiz2025UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JijiQuiz2025UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		21E238831DDE9A3A525A5F44 /* Pods_JijiQuiz2025.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JijiQuiz2025.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C625FEDFC97DE5D52A1D1F1 /* Pods_JijiQuiz2025_JijiQuiz2025UITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JijiQuiz2025_JijiQuiz2025UITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		415D4936CA3D98D831064870 /* Pods-JijiQuiz2025-JijiQuiz2025UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JijiQuiz2025-JijiQuiz2025UITests.debug.xcconfig"; path = "Target Support Files/Pods-JijiQuiz2025-JijiQuiz2025UITests/Pods-JijiQuiz2025-JijiQuiz2025UITests.debug.xcconfig"; sourceTree = "<group>"; };
+		4E264A068612F9B510FEF646 /* Pods-JijiQuiz2025-JijiQuiz2025UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JijiQuiz2025-JijiQuiz2025UITests.release.xcconfig"; path = "Target Support Files/Pods-JijiQuiz2025-JijiQuiz2025UITests/Pods-JijiQuiz2025-JijiQuiz2025UITests.release.xcconfig"; sourceTree = "<group>"; };
+		6C12B046CD45DF17BF2ECEAD /* Pods_JijiQuiz2025Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JijiQuiz2025Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A38EC92020AF787BA1158178 /* Pods-JijiQuiz2025.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JijiQuiz2025.debug.xcconfig"; path = "Target Support Files/Pods-JijiQuiz2025/Pods-JijiQuiz2025.debug.xcconfig"; sourceTree = "<group>"; };
+		D3DC81CA82EC274F9EDDAA8B /* Pods-JijiQuiz2025Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JijiQuiz2025Tests.debug.xcconfig"; path = "Target Support Files/Pods-JijiQuiz2025Tests/Pods-JijiQuiz2025Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		EBA229EAFD281D0A4CF337EF /* Pods-JijiQuiz2025.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JijiQuiz2025.release.xcconfig"; path = "Target Support Files/Pods-JijiQuiz2025/Pods-JijiQuiz2025.release.xcconfig"; sourceTree = "<group>"; };
+		EE2ED91EDE16D64BF503A564 /* Pods-JijiQuiz2025Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JijiQuiz2025Tests.release.xcconfig"; path = "Target Support Files/Pods-JijiQuiz2025Tests/Pods-JijiQuiz2025Tests.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		1D170AB32E28012B008C4110 /* JijiQuiz2025 */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+			);
+			path = JijiQuiz2025;
+			sourceTree = "<group>";
+		};
+		1D170AC12E28012E008C4110 /* JijiQuiz2025Tests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+			);
+			path = JijiQuiz2025Tests;
+			sourceTree = "<group>";
+		};
+		1D170ACB2E28012E008C4110 /* JijiQuiz2025UITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+			);
+			path = JijiQuiz2025UITests;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1D170AAE2E28012B008C4110 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				70ED8394D7DC04C97C1E117D /* Pods_JijiQuiz2025.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1D170ABB2E28012E008C4110 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE9A328C5A9AA6221CA2ACE4 /* Pods_JijiQuiz2025Tests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1D170AC52E28012E008C4110 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A9301CC58CECDB822E05DA84 /* Pods_JijiQuiz2025_JijiQuiz2025UITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1D170AA82E28012B008C4110 = {
+			isa = PBXGroup;
+			children = (
+				1D170AB32E28012B008C4110 /* JijiQuiz2025 */,
+				1D170AC12E28012E008C4110 /* JijiQuiz2025Tests */,
+				1D170ACB2E28012E008C4110 /* JijiQuiz2025UITests */,
+				1D170AB22E28012B008C4110 /* Products */,
+				DF0949A87217419E296A4059 /* Pods */,
+				3A3317F687E1427F6D30ED9B /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		1D170AB22E28012B008C4110 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1D170AB12E28012B008C4110 /* JijiQuiz2025.app */,
+				1D170ABE2E28012E008C4110 /* JijiQuiz2025Tests.xctest */,
+				1D170AC82E28012E008C4110 /* JijiQuiz2025UITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3A3317F687E1427F6D30ED9B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				21E238831DDE9A3A525A5F44 /* Pods_JijiQuiz2025.framework */,
+				2C625FEDFC97DE5D52A1D1F1 /* Pods_JijiQuiz2025_JijiQuiz2025UITests.framework */,
+				6C12B046CD45DF17BF2ECEAD /* Pods_JijiQuiz2025Tests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DF0949A87217419E296A4059 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A38EC92020AF787BA1158178 /* Pods-JijiQuiz2025.debug.xcconfig */,
+				EBA229EAFD281D0A4CF337EF /* Pods-JijiQuiz2025.release.xcconfig */,
+				415D4936CA3D98D831064870 /* Pods-JijiQuiz2025-JijiQuiz2025UITests.debug.xcconfig */,
+				4E264A068612F9B510FEF646 /* Pods-JijiQuiz2025-JijiQuiz2025UITests.release.xcconfig */,
+				D3DC81CA82EC274F9EDDAA8B /* Pods-JijiQuiz2025Tests.debug.xcconfig */,
+				EE2ED91EDE16D64BF503A564 /* Pods-JijiQuiz2025Tests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1D170AB02E28012B008C4110 /* JijiQuiz2025 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1D170AD22E28012E008C4110 /* Build configuration list for PBXNativeTarget "JijiQuiz2025" */;
+			buildPhases = (
+				2578B848C0E16DBA86F5EB31 /* [CP] Check Pods Manifest.lock */,
+				1D170AAD2E28012B008C4110 /* Sources */,
+				1D170AAE2E28012B008C4110 /* Frameworks */,
+				1D170AAF2E28012B008C4110 /* Resources */,
+				ECDD0F17A67B4C278C08475F /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				1D170AB32E28012B008C4110 /* JijiQuiz2025 */,
+			);
+			name = JijiQuiz2025;
+			productName = JijiQuiz2025;
+			productReference = 1D170AB12E28012B008C4110 /* JijiQuiz2025.app */;
+			productType = "com.apple.product-type.application";
+		};
+		1D170ABD2E28012E008C4110 /* JijiQuiz2025Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1D170AD52E28012E008C4110 /* Build configuration list for PBXNativeTarget "JijiQuiz2025Tests" */;
+			buildPhases = (
+				719C461D8B045594BDA8CB1D /* [CP] Check Pods Manifest.lock */,
+				1D170ABA2E28012E008C4110 /* Sources */,
+				1D170ABB2E28012E008C4110 /* Frameworks */,
+				1D170ABC2E28012E008C4110 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1D170AC02E28012E008C4110 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				1D170AC12E28012E008C4110 /* JijiQuiz2025Tests */,
+			);
+			name = JijiQuiz2025Tests;
+			productName = JijiQuiz2025Tests;
+			productReference = 1D170ABE2E28012E008C4110 /* JijiQuiz2025Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		1D170AC72E28012E008C4110 /* JijiQuiz2025UITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1D170AD82E28012E008C4110 /* Build configuration list for PBXNativeTarget "JijiQuiz2025UITests" */;
+			buildPhases = (
+				D922C988D1760E40FB879B3F /* [CP] Check Pods Manifest.lock */,
+				1D170AC42E28012E008C4110 /* Sources */,
+				1D170AC52E28012E008C4110 /* Frameworks */,
+				1D170AC62E28012E008C4110 /* Resources */,
+				A61664F2064D50FE15CCF20B /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1D170ACA2E28012E008C4110 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				1D170ACB2E28012E008C4110 /* JijiQuiz2025UITests */,
+			);
+			name = JijiQuiz2025UITests;
+			productName = JijiQuiz2025UITests;
+			productReference = 1D170AC82E28012E008C4110 /* JijiQuiz2025UITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1D170AA92E28012B008C4110 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1640;
+				LastUpgradeCheck = 1640;
+				TargetAttributes = {
+					1D170AB02E28012B008C4110 = {
+						CreatedOnToolsVersion = 16.4;
+					};
+					1D170ABD2E28012E008C4110 = {
+						CreatedOnToolsVersion = 16.4;
+						TestTargetID = 1D170AB02E28012B008C4110;
+					};
+					1D170AC72E28012E008C4110 = {
+						CreatedOnToolsVersion = 16.4;
+						TestTargetID = 1D170AB02E28012B008C4110;
+					};
+				};
+			};
+			buildConfigurationList = 1D170AAC2E28012B008C4110 /* Build configuration list for PBXProject "JijiQuiz2025" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1D170AA82E28012B008C4110;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 1D170AB22E28012B008C4110 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1D170AB02E28012B008C4110 /* JijiQuiz2025 */,
+				1D170ABD2E28012E008C4110 /* JijiQuiz2025Tests */,
+				1D170AC72E28012E008C4110 /* JijiQuiz2025UITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1D170AAF2E28012B008C4110 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1D170ABC2E28012E008C4110 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1D170AC62E28012E008C4110 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2578B848C0E16DBA86F5EB31 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-JijiQuiz2025-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		719C461D8B045594BDA8CB1D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-JijiQuiz2025Tests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A61664F2064D50FE15CCF20B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-JijiQuiz2025-JijiQuiz2025UITests/Pods-JijiQuiz2025-JijiQuiz2025UITests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-JijiQuiz2025-JijiQuiz2025UITests/Pods-JijiQuiz2025-JijiQuiz2025UITests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-JijiQuiz2025-JijiQuiz2025UITests/Pods-JijiQuiz2025-JijiQuiz2025UITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D922C988D1760E40FB879B3F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-JijiQuiz2025-JijiQuiz2025UITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ECDD0F17A67B4C278C08475F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-JijiQuiz2025/Pods-JijiQuiz2025-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-JijiQuiz2025/Pods-JijiQuiz2025-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-JijiQuiz2025/Pods-JijiQuiz2025-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1D170AAD2E28012B008C4110 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1D170ABA2E28012E008C4110 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1D170AC42E28012E008C4110 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1D170AC02E28012E008C4110 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1D170AB02E28012B008C4110 /* JijiQuiz2025 */;
+			targetProxy = 1D170ABF2E28012E008C4110 /* PBXContainerItemProxy */;
+		};
+		1D170ACA2E28012E008C4110 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1D170AB02E28012B008C4110 /* JijiQuiz2025 */;
+			targetProxy = 1D170AC92E28012E008C4110 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		1D170AD02E28012E008C4110 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		1D170AD12E28012E008C4110 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1D170AD32E28012E008C4110 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A38EC92020AF787BA1158178 /* Pods-JijiQuiz2025.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jiji.JijiQuiz2025;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1D170AD42E28012E008C4110 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EBA229EAFD281D0A4CF337EF /* Pods-JijiQuiz2025.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jiji.JijiQuiz2025;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		1D170AD62E28012E008C4110 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D3DC81CA82EC274F9EDDAA8B /* Pods-JijiQuiz2025Tests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jiji.JijiQuiz2025Tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/JijiQuiz2025.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/JijiQuiz2025";
+			};
+			name = Debug;
+		};
+		1D170AD72E28012E008C4110 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EE2ED91EDE16D64BF503A564 /* Pods-JijiQuiz2025Tests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jiji.JijiQuiz2025Tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/JijiQuiz2025.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/JijiQuiz2025";
+			};
+			name = Release;
+		};
+		1D170AD92E28012E008C4110 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 415D4936CA3D98D831064870 /* Pods-JijiQuiz2025-JijiQuiz2025UITests.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jiji.JijiQuiz2025UITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = JijiQuiz2025;
+			};
+			name = Debug;
+		};
+		1D170ADA2E28012E008C4110 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4E264A068612F9B510FEF646 /* Pods-JijiQuiz2025-JijiQuiz2025UITests.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jiji.JijiQuiz2025UITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = JijiQuiz2025;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1D170AAC2E28012B008C4110 /* Build configuration list for PBXProject "JijiQuiz2025" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1D170AD02E28012E008C4110 /* Debug */,
+				1D170AD12E28012E008C4110 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1D170AD22E28012E008C4110 /* Build configuration list for PBXNativeTarget "JijiQuiz2025" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1D170AD32E28012E008C4110 /* Debug */,
+				1D170AD42E28012E008C4110 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1D170AD52E28012E008C4110 /* Build configuration list for PBXNativeTarget "JijiQuiz2025Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1D170AD62E28012E008C4110 /* Debug */,
+				1D170AD72E28012E008C4110 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1D170AD82E28012E008C4110 /* Build configuration list for PBXNativeTarget "JijiQuiz2025UITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1D170AD92E28012E008C4110 /* Debug */,
+				1D170ADA2E28012E008C4110 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1D170AA92E28012B008C4110 /* Project object */;
+}
