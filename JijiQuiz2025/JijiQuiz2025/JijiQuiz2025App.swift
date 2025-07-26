@@ -1,17 +1,14 @@
-//
-//  JijiQuiz2025App.swift
-//  JijiQuiz2025
-//
-//  Created by 川口達矢 on 2025/07/17.
-//
-
 import SwiftUI
+import GoogleMobileAds          // AdMob 用モジュール
 
 @main
 struct JijiQuiz2025App: App {
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate   // AppDelegate と橋渡し
+
     var body: some Scene {
         WindowGroup {
             ContentView()
         }
     }
 }
+

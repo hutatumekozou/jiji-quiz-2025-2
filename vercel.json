@@ -1,0 +1,23 @@
+{
+  "name": "jiji-quiz-2025",
+  "buildCommand": "echo 'No build needed'",
+  "outputDirectory": ".",
+  "installCommand": "echo 'No install needed'",
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400"
+        }
+      ]
+    }
+  ],
+  "routes": [
+    {
+      "src": "/monthly",
+      "dest": "/monthly-quiz/index.html"
+    }
+  ]
+}
