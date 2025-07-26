@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2025時事クイズ（月別版）- 1月から6月まで各月10問</title>
+    <meta name="description" content="2025年1月から6月までの月別時事問題。各月10問ずつ、政治・経済・環境・技術など幅広いトピックから出題。">
+    <meta name="keywords" content="月別時事クイズ,2025年,1月,2月,3月,4月,5月,6月,時事問題,ニュース">
+    <meta property="og:title" content="2025時事クイズ（月別版）">
+    <meta property="og:description" content="2025年1月から6月まで月別の時事問題にチャレンジ！">
+    <meta property="og:type" content="website">
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📅</text></svg>">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Meiryo', sans-serif;
+            background-color: #f5f5f5;
+            min-height: 100vh;
+            padding: 10px;
+            overflow-y: auto;
+        }
+        
+        .container {
+            max-width: 800px;
+            width: 100%;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+        
+        .content {
+            padding: 40px 30px;
+        }
+        
+        /* 月別選択画面 */
+        .month-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .month-button {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 15px;
+            padding: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            min-height: 130px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .month-button:hover {
+            border-color: #3498db;
+            background: #f8f9fa;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(52, 152, 219, 0.2);
+        }
+        
+        .month-label {
+            font-size: 22px;
+            font-weight: bold;
+            color: #3498db;
+            margin-bottom: 8px;
+        }
+        
+        .month-subtitle {
+            font-size: 14px;
+            color: #7f8c8d;
+            margin-bottom: 12px;
+        }
+        
+        .question-count {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            padding: 6px 15px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: bold;
+            display: inline-block;
+        }
+        
+        /* クイズ画面と結果画面のスタイル */
+        .question-header {
+            margin-bottom: 20px;
+        }
+        
+        .month-title {
+            font-size: 18px;
+            color: #3498db;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .question-counter {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        
+        .question {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            text-align: left;
+            border-left: 4px solid #3498db;
+        }
+        
+        .question-text {
+            font-size: 16px;
+            color: #2c3e50;
+            line-height: 1.6;
+        }
+        
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .option {
+            padding: 15px 20px;
+            background: #f8f9fa;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 16px;
+            text-align: left;
+        }
+        
+        .option:hover {
+            background: #e7f3ff;
+            border-color: #3498db;
+        }
+        
+        .option.selected {
+            background: #3498db;
+            color: white;
+            border-color: #3498db;
+        }
+        
+        .option.correct {
+            background: #2ecc71;
+            color: white;
+            border-color: #2ecc71;
+        }
+        
+        .option.incorrect {
+            background: #e74c3c;
+            color: white;
+            border-color: #e74c3c;
+        }
+        
+        .explanation {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            text-align: left;
+            border-left: 4px solid #3498db;
+        }
+        
+        .explanation h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        .explanation p {
+            color: #7f8c8d;
+            line-height: 1.5;
+        }
+        
+        .btn {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 20px 0;
+            width: 100%;
+            max-width: 200px;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+        }
+        
+        .btn:disabled {
+            background: #bdc3c7;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        /* 結果画面 */
+        .result-screen {
+            text-align: center;
+            padding: 40px;
+        }
+        
+        .result-screen h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+        
+        .score {
+            font-size: 48px;
+            color: #3498db;
+            margin: 20px 0;
+        }
+        
+        .percentage {
+            font-size: 24px;
+            color: #7f8c8d;
+            margin-bottom: 20px;
+        }
+        
+        .message {
+            font-size: 20px;
+            color: #2c3e50;
+            margin-bottom: 30px;
+        }
+        
+        /* モバイル対応 */
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+                margin: 10px auto;
+            }
+            
+            .content {
+                padding: 20px 15px;
+            }
+            
+            .header {
+                padding: 20px;
+            }
+            
+            .month-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .month-button {
+                padding: 20px;
+                min-height: 110px;
+            }
+            
+            .month-label {
+                font-size: 20px;
+            }
+            
+            .question-text {
+                font-size: 14px;
+            }
+            
+            .option {
+                padding: 12px 15px;
+                font-size: 14px;
+            }
+            
+            .explanation {
+                padding: 15px;
+                margin: 15px 0;
+            }
+            
+            .btn {
+                padding: 12px 25px;
+                font-size: 14px;
+            }
+        }
+        
+        /* アニメーション */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes fadeOut {
+            from { opacity: 1; }
+            to { opacity: 0; }
+        }
+        
+        @keyframes slideIn {
+            from { 
+                transform: translateY(-50px); 
+                opacity: 0; 
+            }
+            to { 
+                transform: translateY(0); 
+                opacity: 1; 
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>2025時事クイズ</h1>
+            <p>月別クイズを選択してください</p>
+        </div>
+        
+        <!-- 月別選択画面 -->
+        <div id="month-screen" class="content">
+            <div class="month-grid">
+                <div class="month-button" onclick="selectMonth('january')">
+                    <div class="month-label">25年1月</div>
+                    <div class="month-subtitle">新年の政策・制度</div>
+                    <div class="question-count">10問</div>
+                </div>
+                <div class="month-button" onclick="selectMonth('february')">
+                    <div class="month-label">25年2月</div>
+                    <div class="month-subtitle">社会保障・防災</div>
+                    <div class="question-count">10問</div>
+                </div>
+                <div class="month-button" onclick="selectMonth('march')">
+                    <div class="month-label">25年3月</div>
+                    <div class="month-subtitle">新年度・教育</div>
+                    <div class="question-count">10問</div>
+                </div>
+                <div class="month-button" onclick="selectMonth('april')">
+                    <div class="month-label">25年4月</div>
+                    <div class="month-subtitle">万博・働き方</div>
+                    <div class="question-count">10問</div>
+                </div>
+                <div class="month-button" onclick="selectMonth('may')">
+                    <div class="month-label">25年5月</div>
+                    <div class="month-subtitle">労働・子育て</div>
+                    <div class="question-count">10問</div>
+                </div>
+                <div class="month-button" onclick="selectMonth('june')">
+                    <div class="month-label">25年6月</div>
+                    <div class="month-subtitle">気候・健康</div>
+                    <div class="question-count">10問</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- クイズ画面 -->
+        <div id="quiz-screen" class="content hidden">
+            <div class="question-header">
+                <div class="month-title" id="current-month-title">2025年1月</div>
+                <div class="question-counter">
+                    問題 <span id="question-number">1</span> / 10
+                </div>
+            </div>
+            <div class="question">
+                <div class="question-text" id="question-text"></div>
+            </div>
+            <div class="options" id="options"></div>
+            <div id="explanation" class="explanation hidden">
+                <h3 id="result-text"></h3>
+                <p id="explanation-text"></p>
+            </div>
+            <button id="next-btn" class="btn hidden">次の問題</button>
+        </div>
+        
+        <!-- 結果画面 -->
+        <div id="result-screen" class="result-screen hidden">
+            <h2>結果発表</h2>
+            <div class="month-title" id="result-month-title">2025年1月</div>
+            <div class="score" id="final-score">0 / 10</div>
+            <div class="percentage" id="percentage">正答率: 0%</div>
+            <div class="message" id="result-message"></div>
+            <button class="btn" onclick="backToMenu()">目次に戻る</button>
+        </div>
+    </div>
+
+    <script>
+        // 月別クイズデータの簡略版（デモ用）
+        const monthlyQuestions = {
+            january: [
+                { id: 1, text: "2025年1月に注目された新年の政策は？", options: ["少子化対策", "経済政策", "環境政策", "教育政策"], correctIndex: 0, explanation: "2025年1月は少子化対策が大きな政策課題として注目されました。" },
+                { id: 2, text: "2025年1月に開始された新制度は？", options: ["デジタル庁拡充", "AI活用促進", "働き方改革2.0", "全世代型社会保障"], correctIndex: 3, explanation: "全世代型社会保障制度の本格運用が2025年1月に開始されました。" },
+                { id: 3, text: "2025年1月の経済指標で注目されたのは？", options: ["GDP成長率", "失業率改善", "物価安定", "輸出増加"], correctIndex: 1, explanation: "2025年1月は失業率の改善が大きく注目されました。" },
+                { id: 4, text: "2025年1月に話題となった技術革新は？", options: ["量子コンピューター", "AI医療診断", "自動運転車", "再生可能エネルギー"], correctIndex: 1, explanation: "AI医療診断システムが2025年1月に実用化段階に入りました。" },
+                { id: 5, text: "2025年1月の国際情勢で重要だったのは？", options: ["気候変動協議", "貿易協定", "安全保障", "文化交流"], correctIndex: 0, explanation: "気候変動に関する国際協議が2025年1月に活発化しました。" },
+                { id: 6, text: "2025年1月に改正された法律は？", options: ["労働基準法", "教育基本法", "環境基本法", "デジタル社会形成基本法"], correctIndex: 3, explanation: "デジタル社会形成基本法の改正が2025年1月に施行されました。" },
+                { id: 7, text: "2025年1月に開始された教育改革は？", options: ["個別最適化学習", "STEAM教育", "多言語教育", "デジタル教科書"], correctIndex: 0, explanation: "個別最適化学習システムが2025年1月から本格導入されました。" },
+                { id: 8, text: "2025年1月の医療分野の進歩は？", options: ["遠隔医療拡大", "新薬開発", "医療AI", "再生医療"], correctIndex: 0, explanation: "遠隔医療の保険適用拡大が2025年1月に実現しました。" },
+                { id: 9, text: "2025年1月に注目された環境対策は？", options: ["カーボンニュートラル", "プラスチック削減", "森林保護", "海洋保全"], correctIndex: 0, explanation: "カーボンニュートラル実現に向けた新施策が2025年1月に発表されました。" },
+                { id: 10, text: "2025年1月の地方創生で重要だったのは？", options: ["デジタル田園都市", "観光振興", "農業改革", "移住促進"], correctIndex: 0, explanation: "デジタル田園都市構想が2025年1月に本格始動しました。" }
+            ],
+            february: [
+                { id: 1, text: "2025年2月に強化された社会保障制度は？", options: ["年金制度", "医療保険", "介護保険", "雇用保険"], correctIndex: 2, explanation: "介護保険制度の抜本的改革が2025年2月に開始されました。" },
+                { id: 2, text: "2025年2月に話題となった防災対策は？", options: ["AI防災システム", "避難所整備", "情報伝達システム", "災害予測技術"], correctIndex: 0, explanation: "AI技術を活用した防災システムが2025年2月に運用開始されました。" },
+                { id: 3, text: "2025年2月の農業政策で重要だったのは？", options: ["スマート農業", "有機農業", "農地集約", "6次産業化"], correctIndex: 0, explanation: "スマート農業の推進が2025年2月に本格化しました。" },
+                { id: 4, text: "2025年2月に開始されたエネルギー政策は？", options: ["再生可能エネルギー", "省エネルギー", "蓄電技術", "水素エネルギー"], correctIndex: 0, explanation: "再生可能エネルギーの大幅拡大計画が2025年2月に発表されました。" },
+                { id: 5, text: "2025年2月の観光政策で注目されたのは？", options: ["持続可能な観光", "デジタル観光", "地域観光", "インバウンド"], correctIndex: 0, explanation: "持続可能な観光の推進が2025年2月に本格化しました。" },
+                { id: 6, text: "2025年2月に改善された交通システムは？", options: ["公共交通", "道路整備", "港湾機能", "空港機能"], correctIndex: 0, explanation: "公共交通機関の統合システムが2025年2月に稼働開始しました。" },
+                { id: 7, text: "2025年2月の住宅政策で重要だったのは？", options: ["省エネ住宅", "公営住宅", "空き家対策", "住宅ローン"], correctIndex: 0, explanation: "省エネ住宅の普及支援が2025年2月に強化されました。" },
+                { id: 8, text: "2025年2月に拡充された健康政策は？", options: ["予防医療", "健康診断", "メンタルヘルス", "健康づくり"], correctIndex: 0, explanation: "予防医療の充実を図る政策が2025年2月に開始されました。" },
+                { id: 9, text: "2025年2月の金融政策で注目されたのは？", options: ["デジタル通貨", "金利政策", "為替政策", "金融規制"], correctIndex: 0, explanation: "CBDC（中央銀行デジタル通貨）の検討が2025年2月に進展しました。" },
+                { id: 10, text: "2025年2月の文化政策で重要だったのは？", options: ["デジタル文化", "伝統文化", "文化施設", "文化交流"], correctIndex: 0, explanation: "デジタル技術を活用した文化政策が2025年2月に推進されました。" }
+            ],
+            march: [
+                { id: 1, text: "2025年3月に開始された新年度政策は？", options: ["予算執行開始", "制度改革", "組織再編", "人事異動"], correctIndex: 0, explanation: "2025年度予算の執行が3月に開始され、各種政策が本格化しました。" },
+                { id: 2, text: "2025年3月の教育制度改革は？", options: ["学習指導要領", "大学入試", "職業教育", "生涯学習"], correctIndex: 0, explanation: "新学習指導要領が2025年3月に全面実施されました。" },
+                { id: 3, text: "2025年3月に強化された環境政策は？", options: ["循環経済", "生物多様性", "大気質改善", "水質保全"], correctIndex: 0, explanation: "循環経済の推進が2025年3月に本格化しました。" },
+                { id: 4, text: "2025年3月の雇用政策で重要だったのは？", options: ["就職支援", "職業訓練", "働き方改革", "労働環境"], correctIndex: 0, explanation: "デジタル技術を活用した就職支援が2025年3月に開始されました。" },
+                { id: 5, text: "2025年3月に進展した科学技術は？", options: ["量子技術", "バイオ技術", "ナノ技術", "宇宙技術"], correctIndex: 0, explanation: "量子技術の実用化が2025年3月に大きく進展しました。" },
+                { id: 6, text: "2025年3月の地方政策で注目されたのは？", options: ["地方創生", "過疎対策", "都市再生", "地域活性化"], correctIndex: 0, explanation: "地方創生の新段階が2025年3月に始動しました。" },
+                { id: 7, text: "2025年3月に強化された国際協力は？", options: ["多国間協力", "二国間協力", "経済協力", "技術協力"], correctIndex: 0, explanation: "多国間協力の枠組みが2025年3月に強化されました。" },
+                { id: 8, text: "2025年3月の文化事業で重要だったのは？", options: ["文化振興", "芸術支援", "文化遺産", "文化産業"], correctIndex: 0, explanation: "文化振興基金が2025年3月に設立されました。" },
+                { id: 9, text: "2025年3月に開始されたスポーツ政策は？", options: ["スポーツ振興", "競技力向上", "健康増進", "施設整備"], correctIndex: 0, explanation: "スポーツ産業の振興策が2025年3月に発表されました。" },
+                { id: 10, text: "2025年3月の福祉政策で重要だったのは？", options: ["地域包括ケア", "障害者支援", "児童福祉", "高齢者福祉"], correctIndex: 0, explanation: "地域包括ケアシステムの強化が2025年3月に開始されました。" }
+            ],
+            april: [
+                { id: 1, text: "2025年4月13日に開幕した大阪・関西万博のテーマは？", options: ["いのち輝く未来社会のデザイン", "人類の進歩と調和", "自然との共生", "技術と人間の調和"], correctIndex: 0, explanation: "2025年大阪・関西万博のテーマは「いのち輝く未来社会のデザイン」です。" },
+                { id: 2, text: "2025年4月の働き方改革で注目されたのは？", options: ["柔軟な働き方", "賃金向上", "職場環境", "労働時間"], correctIndex: 0, explanation: "柔軟な働き方を実現する制度が2025年4月に導入されました。" },
+                { id: 3, text: "2025年4月に本格化した教育政策は？", options: ["個別最適化学習", "国際教育", "職業教育", "特別支援教育"], correctIndex: 0, explanation: "個別最適化学習システムが2025年4月に本格運用されました。" },
+                { id: 4, text: "2025年4月の医療制度改革は？", options: ["遠隔医療", "AI診断", "予防医療", "地域医療"], correctIndex: 0, explanation: "遠隔医療の保険適用が2025年4月に大幅拡大されました。" },
+                { id: 5, text: "2025年4月に開始された交通システムは？", options: ["MaaS", "自動運転", "電動化", "シェアリング"], correctIndex: 0, explanation: "MaaS（モビリティ・アズ・ア・サービス）が2025年4月に全国展開されました。" },
+                { id: 6, text: "2025年4月の地域振興策は？", options: ["デジタル田園都市", "観光振興", "産業振興", "人材育成"], correctIndex: 0, explanation: "デジタル田園都市構想が2025年4月に本格始動しました。" },
+                { id: 7, text: "2025年4月に設定された環境目標は？", options: ["生物多様性保全", "脱炭素化", "資源循環", "汚染防止"], correctIndex: 0, explanation: "生物多様性保全に向けた新目標が2025年4月に設定されました。" },
+                { id: 8, text: "2025年4月の金融サービス革新は？", options: ["CBDC試験運用", "フィンテック", "デジタル決済", "投資促進"], correctIndex: 0, explanation: "CBDC（中央銀行デジタル通貨）の試験運用が2025年4月に開始されました。" },
+                { id: 9, text: "2025年4月に推進された文化政策は？", options: ["文化DX", "伝統保護", "国際交流", "地域文化"], correctIndex: 0, explanation: "文化芸術のデジタル化が2025年4月に本格推進されました。" },
+                { id: 10, text: "2025年4月の宇宙政策で重要だったのは？", options: ["商業宇宙支援", "宇宙探査", "衛星活用", "宇宙産業"], correctIndex: 0, explanation: "商業宇宙活動の支援政策が2025年4月に発表されました。" }
+            ],
+            may: [
+                { id: 1, text: "2025年5月に完全実施された労働政策は？", options: ["同一労働同一賃金", "週休3日制", "テレワーク", "副業解禁"], correctIndex: 0, explanation: "同一労働同一賃金制度が2025年5月に完全実施されました。" },
+                { id: 2, text: "2025年5月に拡充された子育て支援は？", options: ["出産育児一時金", "児童手当", "保育サービス", "育児休業"], correctIndex: 0, explanation: "出産育児一時金の大幅拡充が2025年5月に実施されました。" },
+                { id: 3, text: "2025年5月の高齢者政策で重要だったのは？", options: ["健康寿命延伸", "年金改革", "介護予防", "生涯現役"], correctIndex: 0, explanation: "健康寿命延伸プランが2025年5月に本格始動しました。" },
+                { id: 4, text: "2025年5月に普及した農業技術は？", options: ["垂直農法", "精密農業", "有機農業", "循環農業"], correctIndex: 0, explanation: "都市型垂直農法が2025年5月に本格普及しました。" },
+                { id: 5, text: "2025年5月に開始された観光事業は？", options: ["持続可能観光", "エコツーリズム", "文化観光", "スポーツツーリズム"], correctIndex: 0, explanation: "持続可能な観光の推進事業が2025年5月に開始されました。" },
+                { id: 6, text: "2025年5月の防災対策で注目されたのは？", options: ["広域避難計画", "早期警報", "避難施設", "災害復旧"], correctIndex: 0, explanation: "広域避難計画の策定が2025年5月に完了しました。" },
+                { id: 7, text: "2025年5月に拡大されたエネルギー事業は？", options: ["地熱発電", "風力発電", "太陽光発電", "水力発電"], correctIndex: 0, explanation: "地熱発電の大幅拡大が2025年5月に発表されました。" },
+                { id: 8, text: "2025年5月の住宅政策で重要だったのは？", options: ["省エネ住宅", "賃貸住宅", "公営住宅", "住宅ローン"], correctIndex: 0, explanation: "省エネ住宅の普及支援が2025年5月に強化されました。" },
+                { id: 9, text: "2025年5月に統合された交通政策は？", options: ["公共交通統合", "道路ネットワーク", "物流効率化", "交通安全"], correctIndex: 0, explanation: "公共交通機関の統合システムが2025年5月に稼働しました。" },
+                { id: 10, text: "2025年5月の国際協力で進展したのは？", options: ["アジア経済連携", "気候変動対策", "技術協力", "文化交流"], correctIndex: 0, explanation: "アジア経済連携の強化が2025年5月に大きく進展しました。" }
+            ],
+            june: [
+                { id: 1, text: "2025年6月に加速した気候変動対策は？", options: ["カーボンニュートラル", "適応策", "緩和策", "国際協力"], correctIndex: 0, explanation: "カーボンニュートラル実現に向けた取り組みが2025年6月に加速しました。" },
+                { id: 2, text: "2025年6月に充実した健康政策は？", options: ["予防医療", "地域医療", "専門医療", "救急医療"], correctIndex: 0, explanation: "予防医療の充実を図る政策が2025年6月に本格化しました。" },
+                { id: 3, text: "2025年6月に推進された教育改革は？", options: ["STEAM教育", "グローバル教育", "情報教育", "環境教育"], correctIndex: 0, explanation: "STEAM教育の推進が2025年6月に本格化しました。" },
+                { id: 4, text: "2025年6月に育成された産業分野は？", options: ["デジタル産業", "グリーン産業", "ヘルスケア産業", "宇宙産業"], correctIndex: 0, explanation: "デジタル産業の育成が2025年6月に強化されました。" },
+                { id: 5, text: "2025年6月に始動した地方創生事業は？", options: ["デジタル田園都市", "地域ブランド", "関係人口", "地域循環共生圏"], correctIndex: 0, explanation: "デジタル田園都市構想が2025年6月に本格始動しました。" },
+                { id: 6, text: "2025年6月に開発が進んだ科学技術は？", options: ["量子技術", "バイオ技術", "AI技術", "ロボット技術"], correctIndex: 0, explanation: "量子技術の開発・実用化が2025年6月に大きく進展しました。" },
+                { id: 7, text: "2025年6月に構築が進んだ社会保障は？", options: ["全世代型社会保障", "医療保険", "年金制度", "介護保険"], correctIndex: 0, explanation: "全世代型社会保障制度の構築が2025年6月に進展しました。" },
+                { id: 8, text: "2025年6月に推進された環境事業は？", options: ["循環経済", "再生可能エネルギー", "廃棄物対策", "自然保護"], correctIndex: 0, explanation: "循環経済の推進が2025年6月に本格化しました。" },
+                { id: 9, text: "2025年6月に発表された文化振興策は？", options: ["文化芸術立国", "コンテンツ産業", "クリエイティブ産業", "文化外交"], correctIndex: 0, explanation: "文化芸術立国を目指す振興策が2025年6月に発表されました。" },
+                { id: 10, text: "2025年6月に推進された外交政策は？", options: ["平和外交", "経済外交", "環境外交", "文化外交"], correctIndex: 0, explanation: "平和外交の推進が2025年6月に国際的に注目されました。" }
+            ]
+        };
+
+        // 月の表示名
+        const monthNames = {
+            'january': '2025年1月',
+            'february': '2025年2月',
+            'march': '2025年3月',
+            'april': '2025年4月',
+            'may': '2025年5月',
+            'june': '2025年6月'
+        };
+
+        // 現在の状態
+        let currentMonth = 'january';
+        let currentQuestion = 0;
+        let score = 0;
+        let selectedAnswer = null;
+        let showingResult = false;
+        let questions = [];
+
+        // 月を選択
+        function selectMonth(month) {
+            currentMonth = month;
+            questions = monthlyQuestions[month];
+            currentQuestion = 0;
+            score = 0;
+            selectedAnswer = null;
+            showingResult = false;
+            
+            document.getElementById('month-screen').classList.add('hidden');
+            document.getElementById('quiz-screen').classList.remove('hidden');
+            document.getElementById('current-month-title').textContent = monthNames[month];
+            
+            showQuestion();
+        }
+
+        // 問題を表示
+        function showQuestion() {
+            const question = questions[currentQuestion];
+            document.getElementById('question-number').textContent = currentQuestion + 1;
+            document.getElementById('question-text').textContent = question.text;
+            
+            const optionsContainer = document.getElementById('options');
+            optionsContainer.innerHTML = '';
+            
+            question.options.forEach((option, index) => {
+                const optionElement = document.createElement('div');
+                optionElement.className = 'option';
+                optionElement.textContent = option;
+                optionElement.onclick = () => selectAnswer(index);
+                optionsContainer.appendChild(optionElement);
+            });
+            
+            document.getElementById('explanation').classList.add('hidden');
+            document.getElementById('next-btn').classList.add('hidden');
+            selectedAnswer = null;
+            showingResult = false;
+        }
+
+        // 答えを選択
+        function selectAnswer(index) {
+            if (selectedAnswer !== null) return;
+            
+            selectedAnswer = index;
+            showingResult = true;
+            
+            const question = questions[currentQuestion];
+            const options = document.querySelectorAll('.option');
+            
+            options[index].classList.add('selected');
+            
+            if (index === question.correctIndex) {
+                options[index].classList.add('correct');
+                score++;
+                document.getElementById('result-text').textContent = '正解！';
+            } else {
+                options[index].classList.add('incorrect');
+                options[question.correctIndex].classList.add('correct');
+                document.getElementById('result-text').textContent = '不正解';
+            }
+            
+            document.getElementById('explanation-text').textContent = question.explanation;
+            document.getElementById('explanation').classList.remove('hidden');
+            document.getElementById('next-btn').classList.remove('hidden');
+            
+            const nextBtn = document.getElementById('next-btn');
+            nextBtn.textContent = currentQuestion < questions.length - 1 ? '次の問題' : '結果を見る';
+        }
+
+        // 次の問題
+        function nextQuestion() {
+            if (currentQuestion < questions.length - 1) {
+                currentQuestion++;
+                showQuestion();
+            } else {
+                showResult();
+            }
+        }
+
+        // 結果を表示
+        function showResult() {
+            document.getElementById('quiz-screen').classList.add('hidden');
+            document.getElementById('result-screen').classList.remove('hidden');
+            
+            const percentage = Math.round((score / questions.length) * 100);
+            
+            document.getElementById('result-month-title').textContent = monthNames[currentMonth];
+            document.getElementById('final-score').textContent = `${score} / ${questions.length}`;
+            document.getElementById('percentage').textContent = `正答率: ${percentage}%`;
+            
+            let message = '';
+            if (percentage >= 80) message = '素晴らしい！';
+            else if (percentage >= 60) message = 'よくできました！';
+            else if (percentage >= 40) message = 'もう少し頑張りましょう！';
+            else message = 'また挑戦してみてください！';
+            
+            document.getElementById('result-message').textContent = message;
+        }
+
+        // 目次に戻る
+        function backToMenu() {
+            document.getElementById('result-screen').classList.add('hidden');
+            document.getElementById('month-screen').classList.remove('hidden');
+        }
+
+        // イベントリスナーの設定
+        document.addEventListener('DOMContentLoaded', function() {
+            const nextBtn = document.getElementById('next-btn');
+            if (nextBtn) {
+                nextBtn.addEventListener('click', nextQuestion);
+            }
+        });
+    </script>
+</body>
+</html>
