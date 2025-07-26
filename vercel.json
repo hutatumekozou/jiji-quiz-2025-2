@@ -3,6 +3,7 @@
   "buildCommand": "echo 'No build needed'",
   "outputDirectory": ".",
   "installCommand": "echo 'No install needed'",
+
   "headers": [
     {
       "source": "/(.*)",
@@ -14,10 +15,11 @@
       ]
     }
   ],
-  "routes": [
+
+  "rewrites": [
     {
-      "src": "/monthly",
-      "dest": "/monthly-quiz/index.html"
+      "source": "/monthly",
+      "destination": "/monthly-quiz/index.html"
     }
   ]
 }
