@@ -3,23 +3,34 @@
   "buildCommand": "echo 'No build needed'",
   "outputDirectory": ".",
   "installCommand": "echo 'No install needed'",
-
   "headers": [
+    {
+      "source": "/monthly-quiz/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-cache, no-store, must-revalidate"
+        }
+      ]
+    },
     {
       "source": "/(.*)",
       "headers": [
         {
           "key": "Cache-Control",
-          "value": "public, max-age=86400"
+          "value": "public, max-age=3600"
         }
       ]
     }
   ],
-
   "rewrites": [
     {
       "source": "/monthly",
       "destination": "/monthly-quiz/index.html"
+    },
+    {
+      "source": "/monthly/(.*)",
+      "destination": "/monthly-quiz/$1"
     }
   ]
 }
