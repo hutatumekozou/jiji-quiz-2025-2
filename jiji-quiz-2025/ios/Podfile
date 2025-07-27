@@ -1,6 +1,6 @@
 require File.join(
   File.dirname(`node --print "require.resolve('expo-modules-autolinking/package.json')"`) ,
-  "scripts/autolinking"
+  "scripts/ios/xcode_env_generator"
 )
 require File.join(File.dirname(`node --print "require.resolve('react-native/package.json')"`), "scripts/react_native_pods")
 
