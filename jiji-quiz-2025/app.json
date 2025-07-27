@@ -1,9 +1,7 @@
 {
   "expo": {
     "scheme": "jiji-quiz",
-    "plugins": [
-      "expo-router"
-    ],
+    "plugins": [],
     "name": "2025時事クイズ",
     "slug": "jiji-quiz-2025",
     "version": "1.0.0",
@@ -38,7 +36,7 @@
     },
     "extra": {
       "eas": {
-        "projectId": "YOUR_PROJECT_ID_HERE"
+        "projectId": "5c1374b8-9ad9-4f37-93d7-382d8203e68b"
       }
     }
   }
