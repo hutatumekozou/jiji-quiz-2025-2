@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "2025.app"
-               BlueprintName = "2025"
-               ReferencedContainer = "container:2025.xcodeproj">
+               BuildableName = "jijiquiz2025.app"
+               BlueprintName = "jijiquiz2025"
+               ReferencedContainer = "container:jijiquiz2025.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "2025Tests.xctest"
-               BlueprintName = "2025Tests"
-               ReferencedContainer = "container:2025.xcodeproj">
+               BuildableName = "jijiquiz2025Tests.xctest"
+               BlueprintName = "jijiquiz2025Tests"
+               ReferencedContainer = "container:jijiquiz2025.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "2025.app"
-            BlueprintName = "2025"
-            ReferencedContainer = "container:2025.xcodeproj">
+            BuildableName = "jijiquiz2025.app"
+            BlueprintName = "jijiquiz2025"
+            ReferencedContainer = "container:jijiquiz2025.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "2025.app"
-            BlueprintName = "2025"
-            ReferencedContainer = "container:2025.xcodeproj">
+            BuildableName = "jijiquiz2025.app"
+            BlueprintName = "jijiquiz2025"
+            ReferencedContainer = "container:jijiquiz2025.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
