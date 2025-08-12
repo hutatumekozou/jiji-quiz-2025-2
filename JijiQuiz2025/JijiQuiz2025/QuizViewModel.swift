@@ -9,6 +9,7 @@ class QuizViewModel: ObservableObject {
     @Published var selectedAnswerIndex: Int? = nil
     @Published var answerState: AnswerState = .notAnswered
     @Published var showExplanation = false
+    @Published var currentMonth: QuizMonth? = nil
     
     var currentQuestion: Question? {
         guard currentQuestionIndex < questions.count else { return nil }
@@ -42,28 +43,28 @@ class QuizViewModel: ObservableObject {
     }
     
     init() {
-        loadQuestions()
+        // 初期化時は何も読み込まない（月選択後に読み込み）
     }
     
-    func loadQuestions() {
-        guard let url = Bundle.main.url(forResource: "questions", withExtension: "json"),
-              let data = try? Data(contentsOf: url),
-              let loadedQuestions = try? JSONDecoder().decode([Question].self, from: data) else {
-            print("Failed to load questions.json")
-            return
-        }
-        
-        self.questions = loadedQuestions.shuffled()
-    }
-    
-    func startQuiz() {
+    func startQuiz(for month: QuizMonth) {
+        currentMonth = month
+        loadQuestions(for: month)
         currentQuestionIndex = 0
         score = 0
         quizState = .inProgress
         selectedAnswerIndex = nil
         answerState = .notAnswered
         showExplanation = false
-        questions = questions.shuffled()
+    }
+    
+    // 旧来のstartQuiz()メソッドは互換性のため保持（デフォルト月として1月を使用）
+    func startQuiz() {
+        startQuiz(for: .jan)
+    }
+    
+    private func loadQuestions(for month: QuizMonth) {
+        self.questions = QuestionBank.loadQuestions(for: month)
+        print("✅ Loaded \(questions.count) questions for \(month.title)")
     }
     
     func selectAnswer(_ index: Int) {
@@ -101,5 +102,6 @@ class QuizViewModel: ObservableObject {
         selectedAnswerIndex = nil
         answerState = .notAnswered
         showExplanation = false
+        currentMonth = nil
     }
 }

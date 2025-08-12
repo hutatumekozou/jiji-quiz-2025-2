@@ -4,7 +4,7 @@ struct StartView: View {
     @ObservedObject var viewModel: QuizViewModel
     
     var body: some View {
-        VStack(spacing: 40) {
+        VStack(spacing: 30) {
             Spacer()
             
             // Logo & Title
@@ -19,7 +19,7 @@ struct StartView: View {
                         .fontWeight(.bold)
                         .foregroundColor(.primary)
                     
-                    Text("最新ニュースで知識をチェック！")
+                    Text("月別でチャレンジ！")
                         .font(.headline)
                         .foregroundColor(.secondary)
                         .multilineTextAlignment(.center)
@@ -28,45 +28,61 @@ struct StartView: View {
             
             Spacer()
             
-            // Description
-            VStack(spacing: 15) {
-                Text("時事問題にチャレンジ！")
+            // Month Selection Cards (2x3 grid)
+            VStack(spacing: 20) {
+                Text("挑戦する月を選んでください")
                     .font(.title2)
                     .fontWeight(.semibold)
+                    .foregroundColor(.primary)
                 
-                Text("2025年の最新ニュースに関する問題が10問出題されます")
-                    .font(.body)
-                    .foregroundColor(.secondary)
-                    .multilineTextAlignment(.center)
-                    .padding(.horizontal)
+                LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 16), count: 2), spacing: 16) {
+                    ForEach(QuizMonth.allCases) { month in
+                        MonthCard(month: month) {
+                            viewModel.startQuiz(for: month)
+                        }
+                    }
+                }
+                .padding(.horizontal, 20)
             }
-            
-            Spacer()
-            
-            // Start Button
-            Button(action: {
-                viewModel.startQuiz()
-            }) {
-                Text("スタート")
-                    .font(.title2)
-                    .fontWeight(.semibold)
-                    .foregroundColor(.white)
-                    .frame(width: 200, height: 55)
-                    .background(
-                        LinearGradient(
-                            gradient: Gradient(colors: [.blue, .purple]),
-                            startPoint: .leading,
-                            endPoint: .trailing
-                        )
-                    )
-                    .cornerRadius(25)
-                    .shadow(color: .blue.opacity(0.3), radius: 10, x: 0, y: 5)
-            }
-            .scaleEffect(1.0)
-            .animation(.easeInOut(duration: 0.1), value: false)
             
             Spacer()
         }
         .padding()
+    }
+}
+
+struct MonthCard: View {
+    let month: QuizMonth
+    let action: () -> Void
+    
+    var body: some View {
+        Button(action: action) {
+            VStack(spacing: 12) {
+                Image(systemName: "calendar.badge.clock")
+                    .font(.system(size: 30))
+                    .foregroundColor(.blue)
+                
+                Text(month.title)
+                    .font(.headline)
+                    .fontWeight(.semibold)
+                    .foregroundColor(.primary)
+                
+                Text("10問")
+                    .font(.caption)
+                    .foregroundColor(.secondary)
+            }
+            .frame(height: 100)
+            .frame(maxWidth: .infinity)
+            .background(Color(.systemBackground))
+            .cornerRadius(15)
+            .shadow(color: .gray.opacity(0.2), radius: 5, x: 0, y: 2)
+            .overlay(
+                RoundedRectangle(cornerRadius: 15)
+                    .stroke(Color.blue.opacity(0.2), lineWidth: 1)
+            )
+        }
+        .buttonStyle(PlainButtonStyle())
+        .scaleEffect(1.0)
+        .animation(.easeInOut(duration: 0.1), value: false)
     }
 }

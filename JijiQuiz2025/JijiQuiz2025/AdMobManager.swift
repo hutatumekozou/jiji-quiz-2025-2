@@ -1,6 +1,8 @@
 import Foundation
-import GoogleMobileAds
 import SwiftUI
+
+#if canImport(GoogleMobileAds)
+import GoogleMobileAds
 
 class AdMobManager: NSObject, ObservableObject, GADFullScreenContentDelegate {
     @Published var isAdLoaded = false
@@ -19,7 +21,7 @@ class AdMobManager: NSObject, ObservableObject, GADFullScreenContentDelegate {
     func loadInterstitialAd() {
         let request = GADRequest()
         
-        GADInterstitialAd.load(withAdUnitID: adUnitID, request: request) { [weak self] ad, error in
+        GADInterstitialAd.load(with: adUnitID, request: request) { [weak self] ad, error in
             DispatchQueue.main.async {
                 if let error = error {
                     print("Failed to load interstitial ad: \(error.localizedDescription)")
@@ -49,7 +51,7 @@ class AdMobManager: NSObject, ObservableObject, GADFullScreenContentDelegate {
         // 広告終了後のコールバックを保存
         self.adDismissalCompletion = completion
         
-        interstitialAd.present(fromRootViewController: rootViewController)
+        interstitialAd.present(from: rootViewController)
     }
     
     private var adDismissalCompletion: (() -> Void)?
@@ -84,3 +86,25 @@ class AdMobManager: NSObject, ObservableObject, GADFullScreenContentDelegate {
         loadInterstitialAd() // 次の広告をロード
     }
 }
+
+#else
+// GoogleMobileAds が無い場合のスタブクラス
+class AdMobManager: NSObject, ObservableObject {
+    @Published var isAdLoaded = false
+    @Published var isShowingAd = false
+    
+    override init() {
+        super.init()
+        print("🚫 AdMob not available - using stub implementation")
+    }
+    
+    func loadInterstitialAd() {
+        print("🚫 AdMob stub: loadInterstitialAd called")
+    }
+    
+    func showInterstitialAd(completion: @escaping () -> Void) {
+        print("🚫 AdMob stub: showInterstitialAd called - executing completion immediately")
+        completion()
+    }
+}
+#endif

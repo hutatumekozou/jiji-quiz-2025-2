@@ -77,7 +77,7 @@ struct ResultView: View {
                         .padding(.horizontal)
                 }
                 
-                // Performance Badge
+                // Performance Badge（「再挑戦！」テキストとarrow.clockwiseアイコンを除外）
                 VStack(spacing: 10) {
                     Image(systemName: performanceIcon)
                         .font(.system(size: 40))
@@ -97,9 +97,9 @@ struct ResultView: View {
             
             Spacer()
             
-            // Restart Button
+            // Home Button（「最初に戻る」のみ）
             Button(action: {
-                // 広告を表示してからクイズを再開
+                // 広告を表示してからホームに戻る
                 adMobManager.showInterstitialAd {
                     viewModel.restartQuiz()
                 }
@@ -132,7 +132,7 @@ struct ResultView: View {
         } else if percentage >= 40 {
             return "lightbulb.fill"
         } else {
-            return "arrow.clockwise"
+            return "book.fill" // arrow.clockwiseを削除してbook.fillに変更
         }
     }
     
@@ -158,7 +158,7 @@ struct ResultView: View {
         } else if percentage >= 40 {
             return "もう少し！"
         } else {
-            return "再挑戦！"
+            return "頑張ろう！" // 「再挑戦！」を「頑張ろう！」に変更
         }
     }
 }
