@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2025時事クイズ - 学習概要</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            width: 1242px;
+            height: 2688px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .phone-mockup {
+            position: absolute;
+            right: 80px;
+            top: 200px;
+            width: 400px;
+            height: 800px;
+            background: #000;
+            border-radius: 50px;
+            padding: 20px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+        }
+
+        .screen {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .screen-header {
+            color: white;
+            padding: 60px 20px 40px;
+            text-align: center;
+        }
+
+        .app-icon {
+            font-size: 80px;
+            margin-bottom: 20px;
+        }
+
+        .app-title {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .app-subtitle {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+
+        .month-overview {
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .month-item {
+            background: rgba(255,255,255,0.2);
+            border-radius: 12px;
+            padding: 16px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .month-number {
+            font-size: 16px;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 4px;
+        }
+
+        .month-questions {
+            font-size: 12px;
+            color: rgba(255,255,255,0.8);
+        }
+
+        .left-content {
+            flex: 1;
+            padding: 100px 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .main-title {
+            font-size: 72px;
+            font-weight: 900;
+            color: white;
+            margin-bottom: 30px;
+            line-height: 1.2;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        .description {
+            font-size: 32px;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 50px;
+            line-height: 1.4;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .feature-card {
+            background: rgba(255,255,255,0.1);
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .feature-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .feature-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        .feature-desc {
+            font-size: 16px;
+            color: rgba(255,255,255,0.8);
+            line-height: 1.5;
+        }
+
+        .decorative-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .floating-element {
+            position: absolute;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .element1 {
+            width: 100px;
+            height: 100px;
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .element2 {
+            width: 150px;
+            height: 150px;
+            top: 60%;
+            left: 5%;
+            animation-delay: 3s;
+        }
+
+        .element3 {
+            width: 80px;
+            height: 80px;
+            bottom: 20%;
+            left: 15%;
+            animation-delay: 6s;
+        }
+
+        @keyframes float {
+            0%, 100% { 
+                transform: translateY(0px) rotate(0deg);
+                opacity: 0.3;
+            }
+            50% { 
+                transform: translateY(-30px) rotate(180deg);
+                opacity: 0.6;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="decorative-elements">
+        <div class="floating-element element1"></div>
+        <div class="floating-element element2"></div>
+        <div class="floating-element element3"></div>
+    </div>
+
+    <div class="left-content">
+        <div class="main-title">効率的な<br>時事学習</div>
+        <div class="description">2025年の重要な<br>出来事を体系的に学習</div>
+        
+        <div class="feature-grid">
+            <div class="feature-card">
+                <div class="feature-icon">📚</div>
+                <div class="feature-title">体系的学習</div>
+                <div class="feature-desc">月別に整理された<br>時事問題で効率学習</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎯</div>
+                <div class="feature-title">厳選問題</div>
+                <div class="feature-desc">各月重要な10問を<br>専門家が厳選</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💡</div>
+                <div class="feature-title">詳しい解説</div>
+                <div class="feature-desc">すべての問題に<br>わかりやすい解説付き</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <div class="feature-title">進捗確認</div>
+                <div class="feature-desc">学習状況を可視化<br>達成感を実感</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="phone-mockup">
+        <div class="screen">
+            <div class="screen-header">
+                <div class="app-icon">📰</div>
+                <div class="app-title">2025時事クイズ</div>
+                <div class="app-subtitle">月別でチャレンジ！</div>
+            </div>
+            
+            <div style="text-align: center; color: white; font-size: 18px; font-weight: 600; margin-bottom: 20px;">
+                挑戦する月を選んでください
+            </div>
+            
+            <div class="month-overview">
+                <div class="month-item">
+                    <div class="month-number">25年1月</div>
+                    <div class="month-questions">10問</div>
+                </div>
+                <div class="month-item">
+                    <div class="month-number">25年2月</div>
+                    <div class="month-questions">10問</div>
+                </div>
+                <div class="month-item">
+                    <div class="month-number">25年3月</div>
+                    <div class="month-questions">10問</div>
+                </div>
+                <div class="month-item">
+                    <div class="month-number">25年4月</div>
+                    <div class="month-questions">10問</div>
+                </div>
+                <div class="month-item">
+                    <div class="month-number">25年5月</div>
+                    <div class="month-questions">10問</div>
+                </div>
+                <div class="month-item">
+                    <div class="month-number">25年6月</div>
+                    <div class="month-questions">10問</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

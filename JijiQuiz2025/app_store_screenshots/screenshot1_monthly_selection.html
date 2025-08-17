@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2025時事クイズ - 月別選択画面</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            width: 1242px;
+            height: 2688px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .phone-mockup {
+            position: absolute;
+            right: 80px;
+            top: 200px;
+            width: 400px;
+            height: 800px;
+            background: #000;
+            border-radius: 50px;
+            padding: 20px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+        }
+
+        .screen {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .status-bar {
+            color: white;
+            font-size: 16px;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .app-header {
+            text-align: center;
+            color: white;
+            padding: 40px 0;
+        }
+
+        .app-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .app-subtitle {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+
+        .month-grid {
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .month-card {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .month-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin: 8px 0;
+            color: #333;
+        }
+
+        .month-questions {
+            font-size: 12px;
+            color: #666;
+        }
+
+        .left-content {
+            flex: 1;
+            padding: 100px 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .main-title {
+            font-size: 72px;
+            font-weight: 900;
+            color: white;
+            margin-bottom: 30px;
+            line-height: 1.2;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        .description {
+            font-size: 32px;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 50px;
+            line-height: 1.4;
+        }
+
+        .features {
+            list-style: none;
+            padding: 0;
+        }
+
+        .features li {
+            font-size: 24px;
+            color: white;
+            margin-bottom: 20px;
+            padding-left: 40px;
+            position: relative;
+        }
+
+        .features li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #4ade80;
+            font-weight: bold;
+            font-size: 28px;
+        }
+
+        .decorative-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .circle1 {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            top: -150px;
+            left: -150px;
+        }
+
+        .circle2 {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            bottom: 200px;
+            left: 100px;
+        }
+
+        .newspaper-icon {
+            font-size: 80px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="decorative-elements">
+        <div class="circle1"></div>
+        <div class="circle2"></div>
+    </div>
+
+    <div class="left-content">
+        <div class="main-title">2025年<br>時事クイズ</div>
+        <div class="description">月別で学ぶ<br>最新ニュース</div>
+        <ul class="features">
+            <li>6ヶ月分の時事問題</li>
+            <li>各月10問ずつ厳選</li>
+            <li>わかりやすい解説付き</li>
+            <li>知識を楽しく身につける</li>
+        </ul>
+    </div>
+
+    <div class="phone-mockup">
+        <div class="screen">
+            <div class="status-bar">
+                <span>9:41</span>
+                <span>100%</span>
+            </div>
+            
+            <div class="app-header">
+                <div class="newspaper-icon">📰</div>
+                <div class="app-title">2025時事クイズ</div>
+                <div class="app-subtitle">月別でチャレンジ！</div>
+            </div>
+            
+            <div style="text-align: center; color: white; font-size: 18px; font-weight: 600; margin-bottom: 20px;">
+                挑戦する月を選んでください
+            </div>
+            
+            <div class="month-grid">
+                <div class="month-card">
+                    <div style="font-size: 30px; margin-bottom: 8px;">📅</div>
+                    <div class="month-title">25年1月</div>
+                    <div class="month-questions">10問</div>
+                </div>
+                <div class="month-card">
+                    <div style="font-size: 30px; margin-bottom: 8px;">📅</div>
+                    <div class="month-title">25年2月</div>
+                    <div class="month-questions">10問</div>
+                </div>
+                <div class="month-card">
+                    <div style="font-size: 30px; margin-bottom: 8px;">📅</div>
+                    <div class="month-title">25年3月</div>
+                    <div class="month-questions">10問</div>
+                </div>
+                <div class="month-card">
+                    <div style="font-size: 30px; margin-bottom: 8px;">📅</div>
+                    <div class="month-title">25年4月</div>
+                    <div class="month-questions">10問</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

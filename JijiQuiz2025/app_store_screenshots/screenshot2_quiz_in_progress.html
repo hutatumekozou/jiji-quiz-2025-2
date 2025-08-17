@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2025時事クイズ - クイズ進行中</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            width: 1242px;
+            height: 2688px;
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .phone-mockup {
+            position: absolute;
+            right: 80px;
+            top: 200px;
+            width: 400px;
+            height: 800px;
+            background: #000;
+            border-radius: 50px;
+            padding: 20px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+        }
+
+        .screen {
+            width: 100%;
+            height: 100%;
+            background: #f8fafc;
+            border-radius: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quiz-header {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            padding: 60px 20px 30px;
+            text-align: center;
+        }
+
+        .progress-text {
+            font-size: 18px;
+            margin-bottom: 15px;
+            opacity: 0.9;
+        }
+
+        .progress-bar {
+            width: 80%;
+            height: 8px;
+            background: rgba(255,255,255,0.3);
+            border-radius: 4px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            width: 50%;
+            height: 100%;
+            background: white;
+            border-radius: 4px;
+            transition: width 0.3s ease;
+        }
+
+        .question-container {
+            padding: 40px 20px;
+            flex: 1;
+        }
+
+        .question-text {
+            font-size: 20px;
+            font-weight: 600;
+            color: #1e293b;
+            line-height: 1.5;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .answers {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .answer-option {
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 20px;
+            font-size: 16px;
+            color: #334155;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .answer-option.selected {
+            border-color: #4facfe;
+            background: #f0f9ff;
+        }
+
+        .left-content {
+            flex: 1;
+            padding: 100px 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .main-title {
+            font-size: 72px;
+            font-weight: 900;
+            color: white;
+            margin-bottom: 30px;
+            line-height: 1.2;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        .description {
+            font-size: 32px;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 50px;
+            line-height: 1.4;
+        }
+
+        .stats {
+            display: flex;
+            gap: 60px;
+            margin-top: 40px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 48px;
+            font-weight: 900;
+            color: white;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .stat-label {
+            font-size: 20px;
+            color: rgba(255,255,255,0.8);
+        }
+
+        .decorative-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .wave {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .wave1 { top: 10%; right: 20%; animation-delay: 0s; }
+        .wave2 { bottom: 20%; left: 10%; animation-delay: 2s; }
+        .wave3 { top: 60%; left: 5%; animation-delay: 4s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+    </style>
+</head>
+<body>
+    <div class="decorative-elements">
+        <div class="wave wave1"></div>
+        <div class="wave wave2"></div>
+        <div class="wave wave3"></div>
+    </div>
+
+    <div class="left-content">
+        <div class="main-title">集中して<br>学習</div>
+        <div class="description">一問一答形式で<br>効率的に知識を習得</div>
+        
+        <div class="stats">
+            <div class="stat-item">
+                <div class="stat-number">10</div>
+                <div class="stat-label">問/月</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">60</div>
+                <div class="stat-label">総問題数</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">解説付き</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="phone-mockup">
+        <div class="screen">
+            <div class="quiz-header">
+                <div class="progress-text">問題 5 / 10</div>
+                <div class="progress-bar">
+                    <div class="progress-fill"></div>
+                </div>
+            </div>
+            
+            <div class="question-container">
+                <div class="question-text">
+                    2025年1月に発生した<br>主要な国際的な出来事は<br>何でしょうか？
+                </div>
+                
+                <div class="answers">
+                    <div class="answer-option">
+                        A. 新しい貿易協定の締結
+                    </div>
+                    <div class="answer-option selected">
+                        B. 気候変動サミットの開催
+                    </div>
+                    <div class="answer-option">
+                        C. 宇宙探査計画の発表
+                    </div>
+                    <div class="answer-option">
+                        D. 新技術の国際規制
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
